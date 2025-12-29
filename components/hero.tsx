@@ -127,18 +127,18 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30 dark:from-gray-950 dark:via-black dark:to-blue-950/20">
+    <section className="min-h-screen flex items-center justify-center px-6 py-20 relative overflow-hidden bg-background">
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
           animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"
+          className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[100px]"
         />
         <motion.div
           animate={{ x: [0, -150, 0], y: [0, 100, 0] }}
           transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"
+          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/10 rounded-full blur-[120px]"
         />
       </div>
 
@@ -148,18 +148,19 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative inline-block mb-8"
+          className="relative inline-block mb-12"
         >
-          <div className="relative p-20 inline-block">
+          <div className="relative p-10 inline-block">
             {/* Profile Image */}
-            <div className="relative">
-              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 relative z-[110]">
+            <div className="relative group">
+              <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-background shadow-2xl relative z-[110] ring-4 ring-primary/20">
                 <Image
-                  src="/placeholder-user.jpg"
+                  src="https://github.com/agamjain18.png"
                   alt="Profile"
                   width={192}
                   height={192}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  priority
                 />
               </div>
               {/* Animated Ring */}
@@ -170,7 +171,16 @@ const Hero = () => {
                   repeat: Infinity,
                   ease: "linear",
                 }}
-                className="absolute inset-0 rounded-full border-2 border-dashed border-blue-400/50 dark:border-blue-500/50 scale-110"
+                className="absolute -inset-4 rounded-full border border-dashed border-primary/30"
+              />
+              <motion.div
+                animate={{ rotate: -360 }}
+                transition={{
+                  duration: 15,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+                className="absolute -inset-8 rounded-full border border-dotted border-primary/20"
               />
             </div>
 
@@ -203,15 +213,12 @@ const Hero = () => {
                 style={position}
               >
                 <div className="relative group">
-                  <div className="w-16 h-16 rounded-full bg-white/20 dark:bg-gray-800/20 backdrop-blur-md border border-white/30 dark:border-gray-700/30 flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/40 to-transparent dark:from-white/20 pointer-events-none" />
-                    <div className="absolute top-2 left-2 w-3 h-3 rounded-full bg-white/60 dark:bg-white/40 blur-sm" />
+                  <div className="w-14 h-14 rounded-2xl bg-background/80 backdrop-blur-md border border-border flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300">
                     <span className="text-2xl relative z-10">
                       {skills[index].icon}
                     </span>
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md" />
                   </div>
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-2 py-1 bg-black/80 dark:bg-white/90 text-white dark:text-black text-xs rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg">
                     {skills[index].name}
                   </div>
                 </div>
@@ -221,21 +228,25 @@ const Hero = () => {
         </motion.div>
 
         {/* Name & Stats */}
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-5xl md:text-7xl font-bold mb-10 pb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent"
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           animate={{ opacity: 1, y: 0 }}
+           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Agam Jain
-        </motion.h1>
+          <h1 className="text-5xl md:text-8xl font-bold mb-4 tracking-tight">
+            <span className="bg-gradient-to-r from-primary via-purple-500 to-blue-600 bg-clip-text text-transparent">Agam Jain</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto font-light">
+            Crafting exceptional digital experiences with modern web technologies.
+          </p>
+        </motion.div>
 
         {/* Experience Stats */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 max-w-4xl mx-auto"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-5xl mx-auto"
         >
           {experienceStats.map((stat, index) => (
             <motion.div
@@ -243,24 +254,19 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -5 }}
-              className="relative group"
+              whileHover={{ y: -5 }}
+              className="p-6 rounded-3xl bg-secondary/30 border border-border/50 backdrop-blur-sm hover:bg-secondary/50 transition-colors"
             >
-              <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-white/20 dark:border-gray-700/20 shadow-lg hover:shadow-xl transition-all duration-300">
-                <div
-                  className={`w-12 h-12 rounded-xl bg-gradient-to-r ${stat.color} flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform duration-300`}
-                >
-                  <stat.icon className="h-6 w-6 text-white" />
-                </div>
-                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-sm text-gray-600 dark:text-gray-300 font-medium">
-                  {stat.label}
-                </div>
-                <div
-                  className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${stat.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300 blur-xl`}
-                />
+              <div
+                className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center mb-4 mx-auto shadow-lg`}
+              >
+                <stat.icon className="h-6 w-6 text-white" />
+              </div>
+              <div className="text-3xl font-bold text-foreground mb-1">
+                {stat.value}
+              </div>
+              <div className="text-sm text-muted-foreground font-medium">
+                {stat.label}
               </div>
             </motion.div>
           ))}
@@ -275,51 +281,32 @@ const Hero = () => {
         >
           <Button
             size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group"
+            className="rounded-full px-8 h-12 text-base shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-300"
           >
             <span className="mr-2">View My Work</span>
             <ExternalLink className="h-4 w-4" />
           </Button>
-          <div className="flex gap-3">
-            <a
-              href="https://github.com/agamjain18" // replace with your actual GitHub link
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full p-3 hover:bg-blue-50 dark:hover:bg-blue-950 transition-colors duration-300 bg-transparent"
+          <div className="flex gap-2">
+            {[ 
+              { icon: Github, href: "https://github.com/agamjain18" },
+              { icon: Linkedin, href: "https://linkedin.com/in/aagam-jain-919b4421" },
+              { icon: Mail, href: "mailto:aagamjain152003@gmail.com" }
+            ].map((social, i) => (
+              <a
+                key={i}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <Github className="h-5 w-5" />
-              </Button>
-            </a>
-            <a
-              href="https://linkedin.com/in/aagam-jain-919b4421" // replace with your actual GitHub link
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full p-3 hover:bg-blue-50 dark:hover:bg-blue-950 transition-colors duration-300 bg-transparent"
-              >
-                <Linkedin className="h-5 w-5" />
-              </Button>
-            </a>{" "}
-            <a
-              href="mailto:aagamjain152003@gmail.com" // replace with your actual GitHub link
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                variant="outline"
-                size="lg"
-                className="rounded-full p-3 hover:bg-blue-50 dark:hover:bg-blue-950 transition-colors duration-300 bg-transparent"
-              >
-                <Mail className="h-5 w-5" />
-              </Button>
-            </a>{" "}
+                <Button
+                  variant="outline"
+                  size="icon"
+                  className="rounded-full w-12 h-12 hover:bg-secondary hover:scale-110 transition-all duration-300"
+                >
+                  <social.icon className="h-5 w-5" />
+                </Button>
+              </a>
+            ))}
           </div>
         </motion.div>
 
@@ -330,15 +317,15 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2 }}
           className="flex flex-col items-center"
         >
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+          <p className="text-sm text-muted-foreground mb-4 font-medium uppercase tracking-widest text-[10px]">
             Scroll to explore
           </p>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
-            className="p-2 rounded-full border-2 border-gray-300 dark:border-gray-600"
+            className="p-2 rounded-full border border-border bg-background/50 backdrop-blur-sm"
           >
-            <ArrowDown className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+            <ArrowDown className="h-4 w-4 text-primary" />
           </motion.div>
         </motion.div>
       </div>

@@ -26,7 +26,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 px-6 bg-gray-50/50 dark:bg-gray-900/50"
+      className="py-20 px-6 bg-secondary/20"
     >
       <div className="container mx-auto">
         <motion.div
@@ -36,13 +36,13 @@ const About = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl mb-6">
-            <User className="h-8 w-8 text-white" />
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-6 text-primary">
+            <User className="h-8 w-8" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto" />
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-purple-600 rounded-full mx-auto" />
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -54,7 +54,7 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <p className="text-lg  text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               I&apos;m a dedicated full-stack developer with over 1.5 years of
               experience building impactful digital products. What began as a
               curiosity for how things work has grown into a passion for solving
@@ -63,7 +63,7 @@ const About = () => {
               cross-platform mobile apps, and automation tools—all crafted with
               a mindset of continuous learning and purpose-driven development.
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               I specialize in building modern web applications using React and
               Next.js, developing cross-platform mobile apps with Flutter, and
               crafting robust backend systems with Node.js and cloud services.
@@ -71,7 +71,7 @@ const About = () => {
               AI and continuously explore ways to integrate them into real-world
               solutions.
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-lg text-muted-foreground leading-relaxed">
               When I’m not coding, I actively contribute to open-source
               projects, mentor aspiring developers, and stay engaged with the
               latest advancements in technology. I’m a strong believer in
@@ -96,19 +96,19 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm">
+                <Card className="border-border/50 shadow-lg hover:shadow-xl transition-all duration-300 bg-background/80 backdrop-blur-sm">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
                       <div className="flex-shrink-0">
-                        <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
-                          <highlight.icon className="h-6 w-6 text-white" />
+                        <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                          <highlight.icon className="h-6 w-6" />
                         </div>
                       </div>
                       <div>
-                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
+                        <h3 className="text-xl font-semibold text-foreground mb-1">
                           {highlight.title}
                         </h3>
-                        <p className="text-gray-600 dark:text-gray-300">
+                        <p className="text-muted-foreground">
                           {highlight.description}
                         </p>
                       </div>

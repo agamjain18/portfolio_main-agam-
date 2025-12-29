@@ -49,7 +49,7 @@ const Header = () => {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className="fixed top-0 w-full z-50 backdrop-blur-xl bg-white/80 dark:bg-black/80 border-b border-gray-200/20 dark:border-gray-800/20"
+      className="fixed top-0 w-full z-50 backdrop-blur-xl bg-background/80 border-b border-border"
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
@@ -69,8 +69,8 @@ const Header = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 onClick={() => scrollToSection(item.href)}
-                className={`relative text-sm font-medium transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 ${
-                  activeSection === item.href ? "text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-300"
+                className={`relative text-sm font-medium transition-all duration-300 hover:text-primary ${
+                  activeSection === item.href ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {item.name}
@@ -104,7 +104,7 @@ const Header = () => {
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
                 className={`block w-full text-left text-sm font-medium transition-colors ${
-                  activeSection === item.href ? "text-blue-600 dark:text-blue-400" : "text-gray-700 dark:text-gray-300"
+                  activeSection === item.href ? "text-primary" : "text-muted-foreground"
                 }`}
               >
                 {item.name}
